@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login | CampusCare</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #e0e7ff, #f8fafc);
+            padding: 20px;
+        }
+
+        .login-card {
+            width: 100%;
+            max-width: 420px;
+            background: white;
+            padding: 38px;
+            border-radius: 18px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+        }
+
+        .logo {
+            width: 58px;
+            height: 58px;
+            background: #6B4226;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            font-size: 25px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0f172a;
+            font-size: 26px;
+            margin-bottom: 8px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            color: #334155;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 13px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 9px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #6B4226;
+            box-shadow: 0 0 0 3px rgba(107, 66, 38, 0.12);
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #6B4226;
+            color: white;
+            border: none;
+            border-radius: 9px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #3E2723;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        #message {
+            display: none;
+            margin-top: 18px;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        .error {
+            display: block !important;
+            color: #b91c1c;
+            background: #fee2e2;
+        }
+
+        .success {
+            display: block !important;
+            color: #166534;
+            background: #dcfce7;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 24px;
+            color: #6B4226;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+        <div class="logo">CC</div>
+
+        <h1>Admin Login</h1>
+        <p class="subtitle">Sign in to manage CampusCare complaints</p>
+
+        <form id="login-form">
+            <label for="username">Admin Username</label>
+            <input type="text" id="username" placeholder="Enter admin username" autocomplete="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" autocomplete="current-password"
+                required>
+
+            <button type="submit" id="login-button">Login</button>
+        </form>
+
+        <div id="message" role="alert"></div>
+
+        <a href="index.html" class="back-link">← Back to Homepage</a>
+    </div>
+
+    <script src="login.js"></script>
+</body>
+
+</html>

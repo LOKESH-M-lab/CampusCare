@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusCare – Student Complaint & Request Management System</title>
+  <meta name="description"
+    content="A comprehensive student grievance and facility request management system for colleges. Submit, track, and resolve campus issues efficiently.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body class="landing-body">
+
+  <!-- Landing Header -->
+  <header class="landing-header">
+    <div class="brand-container">
+      <div class="brand-icon">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-title">CampusCare</div>
+        <div class="brand-subtitle">College Grievance Portal</div>
+      </div>
+    </div>
+
+    <nav class="landing-nav" aria-label="Main Navigation">
+      <a href="student.html" class="btn btn-secondary" id="nav-student-portal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+          <circle cx="12" cy="7" r="4"></circle>
+        </svg>
+        Student Portal
+      </a>
+      <a href="login.html" class="btn btn-primary" id="nav-admin-portal">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+          <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+        </svg>
+        Admin Portal
+      </a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+
+    <h1 class="hero-title">
+      Streamlined <span>Student Complaint</span> & Request Resolution
+    </h1>
+
+    <p class="hero-description">
+      CampusCare bridges the communication gap between college students and campus administration.
+      Submit grievances regarding classrooms, laboratories, Wi-Fi, hostels, and cleanliness with real-time status
+      tracking and transparent resolution.
+    </p>
+
+    <!-- Quick Role Login Actions -->
+    <div class="hero-cta-group">
+      <a href="student.html" class="btn btn-primary" id="btn-hero-student">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <polyline points="17 11 19 13 23 9"></polyline>
+        </svg>
+        Launch Student Portal
+      </a>
+
+      <a href="login.html" class="btn btn-secondary" id="btn-hero-admin">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+        Launch Admin Management
+      </a>
+    </div>
+
+    <!-- Feature Cards Grid -->
+    <section class="features-grid" aria-label="Key Features">
+      <!-- Feature 1 -->
+      <article class="feature-card">
+        <div class="feature-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="12" y1="18" x2="12" y2="12"></line>
+            <line x1="9" y1="15" x2="15" y2="15"></line>
+          </svg>
+        </div>
+        <h2 class="feature-title">Fast Grievance Submission</h2>
+        <p class="feature-desc">
+          Easily submit issues across 8 categories including Labs, Classroom equipment, Wi-Fi connectivity, Hostels, and
+          Canteen facilities.
+        </p>
+      </article>
+
+      <!-- Feature 2 -->
+      <article class="feature-card">
+        <div class="feature-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <polyline points="12 6 12 12 16 14"></polyline>
+          </svg>
+        </div>
+        <h2 class="feature-title">Real-Time Status Tracking</h2>
+        <p class="feature-desc">
+          Monitor your complaints live through clear stages: <strong>Pending</strong>, <strong>In Progress</strong>, and
+          <strong>Resolved</strong> with unique ticket identifiers.
+        </p>
+      </article>
+
+      <!-- Feature 3 -->
+      <article class="feature-card">
+        <div class="feature-icon-wrapper">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="20" x2="18" y2="10"></line>
+            <line x1="12" y1="20" x2="12" y2="4"></line>
+            <line x1="6" y1="20" x2="6" y2="14"></line>
+          </svg>
+        </div>
+        <h2 class="feature-title">Admin Management & Insights</h2>
+        <p class="feature-desc">
+          Administrators can filter complaints by department, category, update maintenance progress, add remarks, and
+          analyze campus resolution rates.
+        </p>
+      </article>
+    </section>
+  </main>
+
+  <!-- Landing Footer -->
+  <footer class="landing-footer">
+    <p>CampusCare &copy; 2026 – Designed for College Value Added Course (VAC) Examination & Viva Demonstration.</p>
+    <p style="margin-top: 0.25rem; font-size: 0.8rem; color: var(--text-muted);">Built with Node.js, Express, MongoDB,
+      and Mongoose.</p>
+  </footer>
+
+  <script>
+    // Handle Student Portal access check
+    function handleStudentPortalClick(e) {
+      const studentToken = localStorage.getItem('campuscare_student_token') || sessionStorage.getItem('campuscare_student_token');
+      if (!studentToken) {
+        e.preventDefault();
+        window.location.href = 'student-login.html';
+      }
+      // If student is logged in, default navigation to student.html proceeds smoothly
+    }
+
+    const navStudentBtn = document.getElementById('nav-student-portal');
+    const heroStudentBtn = document.getElementById('btn-hero-student');
+
+    if (navStudentBtn) navStudentBtn.addEventListener('click', handleStudentPortalClick);
+    if (heroStudentBtn) heroStudentBtn.addEventListener('click', handleStudentPortalClick);
+  </script>
+</body>
+
+</html>

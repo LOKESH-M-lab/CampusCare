@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Login – CampusCare</title>
+  <meta name="description" content="Sign in to your CampusCare student portal to submit and track college grievances.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* Centered Brown + White Theme Layout */
+    body.auth-page {
+      min-height: 100vh;
+      margin: 0;
+      padding: 2rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--warm-white, #FAF8F5);
+      font-family: var(--font-sans, 'Inter', -apple-system, sans-serif);
+      box-sizing: border-box;
+    }
+
+    .auth-card {
+      width: 100%;
+      max-width: 440px;
+      background: var(--pure-white, #FFFFFF);
+      padding: 2.75rem 2.5rem;
+      border-radius: var(--radius-xl, 22px);
+      border: 1px solid var(--border-beige, #E6D8CA);
+      box-shadow: 0 16px 40px rgba(62, 39, 35, 0.08);
+      box-sizing: border-box;
+      text-align: left;
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-logo {
+      width: 58px;
+      height: 58px;
+      background: linear-gradient(135deg, var(--primary-brown, #6B4226) 0%, var(--dark-brown, #3E2723) 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 6px 18px rgba(62, 39, 35, 0.22);
+    }
+
+    .brand-caption {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--secondary-brown, #A67B5B);
+      margin-bottom: 0.35rem;
+    }
+
+    .auth-title {
+      font-size: 1.65rem;
+      font-weight: 800;
+      color: var(--dark-brown, #3E2723);
+      margin: 0 0 0.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .auth-subtitle {
+      font-size: 0.925rem;
+      color: var(--text-muted, #8A7263);
+      margin: 0;
+      line-height: 1.45;
+    }
+
+    .form-group {
+      margin-bottom: 1.35rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: var(--text-primary, #3E2723);
+      margin-bottom: 0.45rem;
+    }
+
+    .form-label .required {
+      color: #A84236;
+    }
+
+    .form-control {
+      width: 100%;
+      padding: 0.85rem 1rem;
+      border: 1px solid var(--border-beige, #E6D8CA);
+      background-color: var(--pure-white, #FFFFFF);
+      border-radius: 10px;
+      font-size: 0.95rem;
+      color: var(--text-dark, #2A1A12);
+      outline: none;
+      box-sizing: border-box;
+      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary-brown, #6B4226);
+      box-shadow: 0 0 0 3px rgba(107, 66, 38, 0.12);
+    }
+
+    .field-error {
+      display: none;
+      font-size: 0.8rem;
+      color: #A84236;
+      font-weight: 600;
+      margin-top: 0.35rem;
+      line-height: 1.35;
+    }
+
+    .alert-box {
+      display: none;
+      padding: 0.85rem 1rem;
+      border-radius: 10px;
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+      font-weight: 500;
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .alert-box.error {
+      display: block;
+      color: #8A2D23;
+      background-color: #FDF2F2;
+      border: 1px solid #F5C6CB;
+    }
+
+    .alert-box.success {
+      display: block;
+      color: #385E28;
+      background-color: #F1F8EE;
+      border: 1px solid #C7DEBD;
+    }
+
+    .btn-submit {
+      width: 100%;
+      padding: 0.925rem;
+      background-color: var(--primary-brown, #6B4226);
+      color: #FFFFFF;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background-color 0.15s ease, transform 0.1s ease;
+      margin-top: 0.5rem;
+      box-shadow: 0 4px 12px rgba(107, 66, 38, 0.22);
+    }
+
+    .btn-submit:hover {
+      background-color: var(--dark-brown, #3E2723);
+      transform: translateY(-1px);
+    }
+
+    .btn-submit:disabled {
+      opacity: 0.65;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: 1.75rem;
+      font-size: 0.9rem;
+      color: var(--text-muted, #8A7263);
+    }
+
+    .auth-footer a {
+      color: var(--primary-brown, #6B4226);
+      font-weight: 700;
+      text-decoration: none;
+      margin-left: 0.25rem;
+    }
+
+    .auth-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .sub-links {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-beige, #E6D8CA);
+      font-size: 0.825rem;
+    }
+
+    .sub-links a {
+      color: var(--text-muted, #8A7263);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .sub-links a:hover {
+      color: var(--primary-brown, #6B4226);
+      text-decoration: underline;
+    }
+  </style>
+</head>
+
+<body class="auth-page">
+
+  <div class="auth-card" role="main">
+    <header class="auth-header">
+      <div class="auth-logo" aria-hidden="true">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+          stroke-linecap="round" stroke-linejoin="round">
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+          <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+        </svg>
+      </div>
+      <div class="brand-caption">CampusCare</div>
+      <h1 class="auth-title">Student Login</h1>
+      <p class="auth-subtitle">Sign in to your student portal</p>
+    </header>
+
+    <div class="alert-box" id="login-alert" role="alert" aria-live="polite"></div>
+
+    <form id="student-login-form" autocomplete="on" novalidate>
+      <!-- Email Field -->
+      <div class="form-group">
+        <label class="form-label" for="login-email">
+          Email <span class="required">*</span>
+        </label>
+        <input type="email" id="login-email" class="form-control" placeholder="e.g. lokesh123@gmail.com"
+          autocomplete="email" required>
+        <div class="field-error" id="email-error"></div>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <label class="form-label" for="login-password">
+          Password <span class="required">*</span>
+        </label>
+        <input type="password" id="login-password" class="form-control" placeholder="••••••••"
+          autocomplete="current-password" required>
+        <div class="field-error" id="password-error"></div>
+      </div>
+
+      <!-- Submit Button -->
+      <button type="submit" class="btn-submit" id="btn-login">LOGIN</button>
+
+      <p class="auth-footer">
+        New student?
+        <a href="student-register.html">Create Account</a>
+      </p>
+
+      <div class="sub-links">
+        <a href="login.html">Admin Portal &rarr;</a>
+        <a href="home.html">CampusCare Home</a>
+      </div>
+    </form>
+  </div>
+
+  <script>
+    const API_BASE_URL = window.location.origin.includes(':5000') ? '/api' : 'http://localhost:5000/api';
+
+    const loginForm = document.getElementById('student-login-form');
+    const emailInput = document.getElementById('login-email');
+    const passwordInput = document.getElementById('login-password');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const loginAlert = document.getElementById('login-alert');
+    const btnLogin = document.getElementById('btn-login');
+
+    function showAlert(text, type = 'error') {
+      if (!loginAlert) return;
+      loginAlert.textContent = text;
+      loginAlert.className = `alert-box ${type}`;
+      loginAlert.style.display = 'block';
+    }
+
+    function clearAlert() {
+      if (!loginAlert) return;
+      loginAlert.textContent = '';
+      loginAlert.className = 'alert-box';
+      loginAlert.style.display = 'none';
+    }
+
+    function clearFieldErrors() {
+      if (emailError) { emailError.textContent = ''; emailError.style.display = 'none'; }
+      if (passwordError) { passwordError.textContent = ''; passwordError.style.display = 'none'; }
+    }
+
+    function validateClientEmail(raw) {
+      if (!raw || !raw.trim()) {
+        return { valid: false, message: 'Please enter your email address.' };
+      }
+      const clean = raw.trim();
+      if (!clean.includes('@')) {
+        return { valid: false, message: `Please enter the complete Gmail address, for example: ${clean}@gmail.com` };
+      }
+      const parts = clean.split('@');
+      if (parts.length !== 2) {
+        return { valid: false, message: 'Please enter a valid Gmail address ending with @gmail.com.' };
+      }
+      const [local, domain] = parts;
+      if (!domain || domain.toLowerCase() === 'gmail' || !domain.includes('.')) {
+        return { valid: false, message: `Please enter the complete Gmail address, for example: ${local || 'student'}@gmail.com` };
+      }
+      if (domain.toLowerCase() !== 'gmail.com') {
+        return { valid: false, message: 'Please use a Gmail address ending with @gmail.com.' };
+      }
+      const regex = /^[A-Za-z0-9._%+-]+@gmail\.com$/i;
+      if (!regex.test(clean)) {
+        return { valid: false, message: 'Please enter a valid Gmail address ending with @gmail.com.' };
+      }
+      return { valid: true, email: clean.toLowerCase() };
+    }
+
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      clearAlert();
+      clearFieldErrors();
+
+      const rawEmail = emailInput.value;
+      const password = passwordInput.value;
+
+      const emailCheck = validateClientEmail(rawEmail);
+      if (!emailCheck.valid) {
+        emailError.textContent = emailCheck.message;
+        emailError.style.display = 'block';
+        emailInput.focus();
+        return;
+      }
+
+      if (!password) {
+        passwordError.textContent = 'Please enter your password.';
+        passwordError.style.display = 'block';
+        passwordInput.focus();
+        return;
+      }
+
+      btnLogin.disabled = true;
+      btnLogin.textContent = 'Logging in...';
+
+      try {
+        const response = await fetch(`${API_BASE_URL}/auth/student/login`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: emailCheck.email,
+            password: password
+          })
+        });
+
+        const data = await response.json();
+
+        if (!response.ok || !data.success) {
+          throw new Error(data.message || 'Login failed. Please try again.');
+        }
+
+        // Store authentication session safely
+        localStorage.setItem('campuscare_student_token', data.token);
+        sessionStorage.setItem('campuscare_student_token', data.token);
+
+        const studentProfile = {
+          id: data.student.id,
+          name: data.student.name,
+          email: data.student.email,
+          registerNumber: data.student.registerNumber,
+          role: 'student'
+        };
+
+        localStorage.setItem('campuscare_student_user', JSON.stringify(studentProfile));
+        sessionStorage.setItem('campuscare_student_user', JSON.stringify(studentProfile));
+        localStorage.setItem('campuscare_student', JSON.stringify({
+          name: data.student.name,
+          regNo: data.student.registerNumber,
+          dept: 'Computer Science and Engineering',
+          email: data.student.email
+        }));
+
+        showAlert('Login successful! Redirecting to Student Dashboard...', 'success');
+
+        // AUTOMATIC REDIRECTION DIRECTLY INTO STUDENT DASHBOARD
+        setTimeout(() => {
+          window.location.href = 'student.html';
+        }, 500);
+
+      } catch (err) {
+        showAlert(err.message || 'Unable to connect to server. Please try again.');
+      } finally {
+        btnLogin.disabled = false;
+        btnLogin.textContent = 'LOGIN';
+      }
+    });
+  </script>
+</body>
+
+</html>
