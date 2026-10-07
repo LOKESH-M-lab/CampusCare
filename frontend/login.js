@@ -3,9 +3,7 @@
 
 // Determine API URL:
 // Works both when served directly from Node.js (port 5000) or Live Server (port 5500)
-const API_BASE_URL = window.location.origin.includes(':5000')
-    ? '/api'
-    : 'http://localhost:5000/api';
+const API_BASE_URL = '/api';
 
 // Cache DOM elements
 const loginForm = document.getElementById("login-form");

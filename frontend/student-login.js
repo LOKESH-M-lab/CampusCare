@@ -5,9 +5,7 @@
  */
 
 // Determine API Base URL
-const API_BASE_URL = window.location.origin.includes(':5000')
-  ? '/api'
-  : 'http://localhost:5000/api';
+const API_BASE_URL = '/api';
 
 // DOM Elements - Tabs & View Toggling
 const tabBtnLogin = document.getElementById('tab-btn-login');
